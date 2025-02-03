@@ -7,7 +7,7 @@ import vosk
 import json
 
 def escuchar():
-    model = vosk.Model("modelo_vosk/")
+    model = vosk.Model("liz/voice_engine/models/vosk-model-en-us-0.42-gigaspeech")
     recognizer = vosk.KaldiRecognizer(model, 16000)
 
     audio = pyaudio.PyAudio()
@@ -23,7 +23,7 @@ def escuchar():
 
 
 # Cargar modelo y tokenizer
-model = tf.keras.models.load_model("liz/liz_0001.h5")
+model = tf.keras.models.load_model("liz/liz_0001.keras")
 with open("liz/tokenizer.pickle", "rb") as handle:
     tokenizer = pickle.load(handle)
 with open("liz/label_mapping.pickle", "rb") as handle:
@@ -31,19 +31,19 @@ with open("liz/label_mapping.pickle", "rb") as handle:
 
 # Funciones para ejecutar comandos
 def open_browser(): os.system("start chrome")
-# def close_browser(): os.system("taskkill /IM chrome.exe /F")
+def close_browser(): os.system("taskkill /IM chrome.exe /F")
 def open_music_player(): os.system("start vlc")
 
 actions = {
     "open_browser": open_browser,
-    # "close_browser": close_browser,
+    "close_browser": close_browser,
     "open_music_player": open_music_player
 }
 
 # Predicción de intención
 def get_intent(text):
     sequence = tokenizer.texts_to_sequences([text])
-    padded = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=10, padding='post')
+    padded = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=model.input_shape[1], padding='post')
     prediction = model.predict(padded)
     intent = list(label_mapping.keys())[np.argmax(prediction)]
     return intent

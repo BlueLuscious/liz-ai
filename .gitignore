@@ -200,3 +200,6 @@ pip-selfcheck.json
 
 # Voice Models
 liz/voice_engine/models/*
+
+# Blend Models
+gui/render/blend/*

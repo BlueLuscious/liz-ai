@@ -50,12 +50,10 @@ def get_intent(text):
 
 # Integración de voz con ejecución de comandos
 def assistant():
-    while True:
-        command = escuchar()
-        print(f"👤 Tú: {command}")
-        if command:
-            intent = get_intent(command)
-            print(f"🤖 Intención detectada: {intent}")
-            actions.get(intent, lambda: print("No entiendo ese comando"))()
-
-assistant()
+    command = escuchar()
+    print(f"👤 Tú: {command}")
+    if command:
+        intent = get_intent(command)
+        print(f"🤖 Intención detectada: {intent}")
+        actions.get(intent, lambda: print("No entiendo ese comando"))()
+        

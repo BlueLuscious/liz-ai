@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QColor, QPalette
 from gui.components.circle import CirculoWidget
 import qtawesome as qta
+from liz.ai import assistant
 
 
 class LizAi(QMainWindow):
@@ -44,7 +45,7 @@ class LizAi(QMainWindow):
         self.boton.setStyleSheet(
             "background-color:rgb(0, 120, 200); color:white; border-radius:8px; padding:5px;"
         )
-        # self.boton.clicked.connect()
+        self.boton.clicked.connect(assistant)
 
         layout.addWidget(self.boton, alignment=Qt.AlignmentFlag.AlignCenter)
 

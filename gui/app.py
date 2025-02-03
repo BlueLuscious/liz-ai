@@ -1,5 +1,5 @@
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import (
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (
     QMainWindow, QPushButton, QSpacerItem, QSizePolicy, QVBoxLayout, QWidget
 )
 from gui.components.circle import CirculoWidget

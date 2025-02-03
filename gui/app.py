@@ -2,6 +2,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (
     QMainWindow, QPushButton, QSpacerItem, QSizePolicy, QVBoxLayout, QWidget
 )
+from PyQt5.QtGui import QColor, QPalette
 from gui.components.circle import CirculoWidget
 import qtawesome as qta
 
@@ -12,7 +13,12 @@ class LizAi(QMainWindow):
         super().__init__()
         self.setWindowTitle("Liz")
         self.setGeometry(100, 100, 300, 500)
+        self.setMinimumSize(300, 500)
 
+        palette = self.palette()
+        palette.setColor(QPalette.ColorRole.Background, QColor(20, 20, 20))
+        self.setPalette(palette)
+        
         self.init_ui()
 
     def init_ui(self):

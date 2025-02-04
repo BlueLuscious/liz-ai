@@ -23,7 +23,7 @@ def escuchar():
 
 
 # Cargar modelo y tokenizer
-model: keras.Sequential = keras.models.load_model("liz/liz_0000.keras")
+model: keras.Sequential = keras.models.load_model("liz/liz_0001.keras")
 with open("liz/vectorizer.pickle", "rb") as handle:
     vectorizer = pickle.load(handle)
 with open("liz/label_mapping.pickle", "rb") as handle:

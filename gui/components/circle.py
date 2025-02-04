@@ -1,5 +1,5 @@
-from PyQt5.QtGui import QColor, QPainter, QPen
-from PyQt5.QtWidgets import QSizePolicy, QWidget
+from PyQt6.QtGui import QColor, QPainter, QPen
+from PyQt6.QtWidgets import QSizePolicy, QWidget
 
 
 class CirculoWidget(QWidget):
